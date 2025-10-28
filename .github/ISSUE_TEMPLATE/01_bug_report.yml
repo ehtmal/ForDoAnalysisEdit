@@ -79,7 +79,7 @@ body:
     id: install-method
     attributes:
       label: How did you get the app?
-      description: How did you install or run the MulmoCast App?
+      description: How did you install or run the ForDoAnalysis改 App?
       options:
         - Downloaded from GitHub (macOS)
         - Downloaded from GitHub (Windows)
@@ -93,7 +93,7 @@ body:
     attributes:
       label: App Version
       description: |
-        - Check "About MulmoCast App" in the app menu
+        - Check "About ForDoAnalysis改 App" in the app menu
         - For Downloaded from GitHub: please use PR number
         - For development build: Check package.json or git commit hash
       placeholder: "e.g., 1.2.27 or commit abc123"

@@ -70,7 +70,7 @@ export const intro01_en = {
     audioVolume: 1,
     suppressSpeech: false,
   },
-  title: "Intro 1. Welcome to Mulmocast!!",
+  title: "Intro 1. Welcome to ForDoAnalysisEdit!!",
   description:
     "Please press the 'Generate Video' button on the right. Please watch the video after the video generation is complete.",
   lang: "en",
@@ -78,13 +78,13 @@ export const intro01_en = {
     {
       id: "b1e8a0c1-f2d3-4a5b-8c9e-1f2a3b4c5d6e",
       speaker: "narrator",
-      text: "Welcome to Mulmocast",
+      text: "Welcome to ForDoAnalysisEdit",
       image: {
         type: "markdown",
         markdown: [
           "<div style='display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center;'>",
           "",
-          "# Welcome to Mulmocast",
+          "# Welcome to ForDoAnalysisEdit",
           "",
           "</div>",
         ],
@@ -100,13 +100,13 @@ export const intro01_en = {
     {
       id: "b3e8a0c1-f2d3-4a5b-8c9e-1f2a3b4c5d6e",
       speaker: "guide",
-      text: "With Mulmocast, you can create wonderful videos just by describing them with words.",
+      text: "With ForDoAnalysisEdit, you can create wonderful videos just by describing them with words.",
       imagePrompt: "The process of words transforming into video. In a bright pixel art style.",
     },
     {
       id: "b4e8a0c1-f2d3-4a5b-8c9e-1f2a3b4c5d6e",
       speaker: "creator",
-      text: "Start your creative journey with Mulmocast now!",
+      text: "Start your creative journey with ForDoAnalysisEdit now!",
       imagePrompt:
         "A person with creative wings flying in a sky where future works are floating. A hopeful sunrise. In the style of 90s Japanese anime.",
     },

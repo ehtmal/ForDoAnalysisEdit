@@ -8,8 +8,8 @@
     "height": 720
   },
   "lang": "ja",
-  "title": "MulmoCast ダウンロード＆インストール",
-  "description": "MulmoCastアプリケーション Mac版のダウンロードとインストール手順を説明するガイド",
+  "title": "ForDoAnalysis改 ダウンロード＆インストール",
+  "description": "ForDoAnalysis改アプリケーション Mac版のダウンロードとインストール手順を説明するガイド",
   "speechParams": {
     "speakers": {
       "Presenter": {
@@ -39,8 +39,8 @@
       "image": {
         "type": "markdown",
         "markdown": [
-          "# MulmoCast Installation Guide (Mac)",
-          "# MulmoCast インストールガイド (Mac版)",
+          "# ForDoAnalysis改 Installation Guide (Mac)",
+          "# ForDoAnalysis改 インストールガイド (Mac版)",
           "",
           "## Download and Installation Steps",
           "## ダウンロードとインストール手順",
@@ -59,12 +59,12 @@
           "### 1. Downloading the Application <br> 1. アプリケーションのダウンロード",
           "",
           "English",
-          "- Go to `mulmocast.com`",
+          "- Go to `rilarc.co.jp`",
           "- Locate Mac app download section",
           "- Download Mac app",
           "",
           "日本語",
-          "- `mulmocast.com` にアクセス",
+          "- `rilarc.co.jp` にアクセス",
           "- 「Mac用アプリをダウンロード」セクションを見つける",
           "- Mac用アプリをダウンロード"
         ]
@@ -76,7 +76,7 @@
       "image": {
         "type": "markdown",
         "markdown": [
-          "### 2. Install Application - Drag MulmoCast.app to Applications folder <br> 2. アプリケーションをインストール - MulmoCast.appをアプリケーションフォルダにドラッグ",
+          "### 2. Install Application - Drag ForDoAnalysis改.app to Applications folder <br> 2. アプリケーションをインストール - ForDoAnalysis改.appをアプリケーションフォルダにドラッグ",
           "",
           "<div align=\"center\">",
           "<img src=\"https://github.com/receptron/mulmocast-app/blob/main/docs/guide_youtube/guide00_script_mac/images/00_00_download_folder_drag.png?raw=true\" alt=\"Drag to Applications\" width=\"80%\">",

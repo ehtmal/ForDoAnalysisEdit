@@ -7,7 +7,7 @@ const lang = {
   // UI common vocabulary (reuse-focused)
   ui: {
     common: {
-      applicationName: "MulmoCast",
+      applicationName: "ForDoAnalysis改",
       // Navigation
       back: "Back",
       previous: "Previous",
@@ -318,21 +318,21 @@ const lang = {
     },
   },
   onboarding: {
-    title: "Welcome to MulmoCast",
+    title: "Welcome to ForDoAnalysis改",
     description: "Let's set up your AI assistant to get started",
     welcome: {
-      title: "Welcome to MulmoCast!",
+      title: "Welcome to ForDoAnalysis改!",
       description: "Let's set up your AI assistant to get started",
-      whatIsMulmoCast: "What is MulmoCast?",
+      whatIsMulmoCast: "What is ForDoAnalysis改?",
       whatIsMulmoCastDescription:
-        "MulmoCast is a multimodal AI-powered content creation tool that helps you generate videos, images, and audio using various AI models.",
+        "ForDoAnalysis改 is a multimodal AI-powered content creation tool that helps you generate videos, images, and audio using various AI models.",
       setupGuide:
         "We'll walk you through a few simple steps to get everything configured. Set up your preferred language model and API keys to start creating amazing content!",
     },
     completeBtn: "Complete Setup",
     complete: {
       title: "Setup Complete!",
-      description: "Congratulations! Your MulmoCast setup is now complete.",
+      description: "Congratulations! Your ForDoAnalysis改 setup is now complete.",
       nextSteps: "What's next?",
       createProjectDescription: "Create a new project and start content creation with your AI assistant!",
       features: {
@@ -359,7 +359,7 @@ const lang = {
       titleDesc: "Title (Z-A)",
     },
     empty: {
-      welcome: "Welcome to MulmoCast!",
+      welcome: "Welcome to ForDoAnalysis改!",
       introduction1: "First, click the {createNew} button.",
       introduction2:
         "A project with sample content will be created automatically. Then simply press {generateVideo} button to try it out right away.",

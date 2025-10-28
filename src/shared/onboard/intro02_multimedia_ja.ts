@@ -70,7 +70,7 @@ export const intro02_ja = {
       image: {
         type: "markdown",
         markdown: [
-          "# 🎨 MulmoCastの表現力",
+          "# 🎨 ForDoAnalysis改の表現力",
           "",
           "🖼️ **生成AI画像** - 想像を現実に",
           "",

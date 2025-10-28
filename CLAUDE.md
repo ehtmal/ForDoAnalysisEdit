@@ -1,10 +1,10 @@
-# MulmoCast App Architecture Guide
+# ForDoAnalysis改 App Architecture Guide
 
-This document provides a high-level overview of the MulmoCast application architecture to help future Claude instances understand and be productive with this codebase.
+This document provides a high-level overview of the ForDoAnalysis改 application architecture to help future Claude instances understand and be productive with this codebase.
 
 ## Overview
 
-MulmoCast is an Electron + Vue.js application for creating multimedia presentations using the MulmoCast framework. It provides a visual editor for creating presentation "beats" (slides) with AI-generated content including images, audio, and video. The app features a modern UI built with Tailwind CSS v4, Radix Vue components, and supports internationalization.
+ForDoAnalysis改 is an Electron + Vue.js application for creating multimedia presentations using the ForDoAnalysis改 framework. It provides a visual editor for creating presentation "beats" (slides) with AI-generated content including images, audio, and video. The app features a modern UI built with Tailwind CSS v4, Radix Vue components, and supports internationalization.
 
 ## Key Architecture Components
 
@@ -16,7 +16,7 @@ The application follows Electron's multi-process architecture:
   - Entry point: `main.ts`
   - Handles IPC communication with renderer
   - Manages project files and settings
-  - Interfaces with the MulmoCast library
+  - Interfaces with the ForDoAnalysis改 library
 
 - **Renderer Process** (`src/renderer/`)
   - Vue.js application with TypeScript
@@ -45,7 +45,7 @@ webContents.send("progress-update", data)
 Key IPC handlers in `src/main/ipc_handler.ts`:
 - `project:*` - Project management operations
 - `settings:*` - Settings management
-- `mulmoHandler` - Generic handler for MulmoCast operations
+- `mulmoHandler` - Generic handler for ForDoAnalysis改 operations
 - `dialog:openFile` - File dialog operations
 
 ### 3. Data Models
@@ -73,7 +73,7 @@ ProjectMetadata {
 
 The renderer uses Pinia for state management (`src/renderer/store/index.ts`):
 
-- `mulmoEvent` - Tracks current MulmoCast processing events
+- `mulmoEvent` - Tracks current ForDoAnalysis改 processing events
 - `sessionState` - Tracks active generation sessions per project
 - `graphaiDebugLog` - GraphAI processing logs
 - `zodError` - Validation errors from Zod schemas
@@ -85,18 +85,18 @@ Projects are stored in the user data directory:
 - Each project has its own directory: `{projectId}/`
 - Project files:
   - `meta.json` - Project metadata
-  - `script.json` - MulmoCast script
+  - `script.json` - ForDoAnalysis改 script
   - `output/` - Generated assets
   - `upload_image/` - User-uploaded images
 
-### 6. MulmoCast Integration
+### 6. ForDoAnalysis改 Integration
 
-The app integrates with the MulmoCast library (`mulmocast` npm package) to:
+The app integrates with the ForDoAnalysis改 library (`mulmocast` npm package) to:
 - Generate AI content (images, audio, video)
 - Process presentation scripts
 - Handle multimedia pipeline operations
 
-Key MulmoCast operations in `src/main/mulmo/handler.ts`:
+Key ForDoAnalysis改 operations in `src/main/mulmo/handler.ts`:
 - `mulmoActionRunner` - Runs full generation pipelines
 - `mulmoGenerateImage/Audio` - Generate individual beat assets
 - `mulmoImageFiles/AudioFiles` - Retrieve generated assets
@@ -189,7 +189,7 @@ export class SecureKeyStore {
 1. User edits script in Monaco editor
 2. User clicks generate button
 3. Renderer calls `mulmoHandler("mulmoActionRunner", projectId, actionType)`
-4. Main process runs MulmoCast pipeline
+4. Main process runs ForDoAnalysis改 pipeline
 5. Progress updates sent via IPC
 6. Generated assets saved to project directory
 
@@ -230,7 +230,7 @@ export class SecureKeyStore {
   - `ipc_handler.ts`: IPC communication handlers
   - `project_manager.ts`: Project file operations
   - `settings_manager.ts`: Settings persistence
-  - `mulmo/`: MulmoCast integration layer
+  - `mulmo/`: ForDoAnalysis改 integration layer
 
 - `src/renderer/`: Vue.js renderer application
   - `pages/`: Vue route components (dashboard, project, settings)
@@ -303,4 +303,4 @@ yarn start
 
 This makes Playwright MCP not just a testing tool, but also a powerful debugging and development companion for the Electron application.
 
-This architecture ensures clean separation between UI and business logic, secure IPC communication, proper integration with the MulmoCast multimedia generation framework, and comprehensive testing coverage.
+This architecture ensures clean separation between UI and business logic, secure IPC communication, proper integration with the ForDoAnalysis改 multimedia generation framework, and comprehensive testing coverage.

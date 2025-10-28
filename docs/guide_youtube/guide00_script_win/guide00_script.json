@@ -8,8 +8,8 @@
     "height": 720
   },
   "lang": "ja",
-  "title": "MulmoCast ダウンロード＆インストール",
-  "description": "MulmoCastアプリケーションのダウンロードとインストール手順を説明するガイド",
+  "title": "ForDoAnalysis改 ダウンロード＆インストール",
+  "description": "ForDoAnalysis改アプリケーションのダウンロードとインストール手順を説明するガイド",
   "speechParams": {
     "speakers": {
       "Presenter": {
@@ -39,8 +39,8 @@
       "image": {
         "type": "markdown",
         "markdown": [
-          "# MulmoCast Installation Guide (Windows)",
-          "# MulmoCast インストールガイド (Windows版)",
+          "# ForDoAnalysis改 Installation Guide (Windows)",
+          "# ForDoAnalysis改 インストールガイド (Windows版)",
           "",
           "## Download and Installation Steps",
           "## ダウンロードとインストール手順",
@@ -59,12 +59,12 @@
           "### 1. Downloading the Application <br> 1. アプリケーションのダウンロード",
           "",
           "English",
-          "- Go to `mulmocast.com`",
+          "- Go to `rilarc.co.jp`",
           "- Locate Windows app download section",
           "- Click **Download** link",
           "",
           "日本語",
-          "- `mulmocast.com` にアクセス",
+          "- `rilarc.co.jp` にアクセス",
           "- 「Windows用アプリをダウンロード」セクションを見つける",
           "- **ダウンロード** リンクをクリック"
         ]
@@ -136,7 +136,7 @@
       "image": {
         "type": "markdown",
         "markdown": [
-          "### **File:** `MulmoCast-x.x.x-setup.exe` (version may vary) <br> **ファイル:** `MulmoCast-x.x.x-setup.exe` (バージョンは適宜更新されます)",
+          "### **File:** `ForDoAnalysis改-x.x.x-setup.exe` (version may vary) <br> **ファイル:** `ForDoAnalysis改-x.x.x-setup.exe` (バージョンは適宜更新されます)",
           "",
           "<div align=\"center\">",
           "<img src=\"https://github.com/receptron/mulmocast-app/blob/main/docs/guide_youtube/guide00_script_win/images/00_32_installer_doubleclick.png?raw=true\" alt=\"Installer Double-click\" width=\"80%\">",

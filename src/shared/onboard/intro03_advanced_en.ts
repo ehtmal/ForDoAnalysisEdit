@@ -89,7 +89,7 @@ export const intro03_en = {
     {
       id: "d01e8a0c1-f2d3-4a5b-8c9e-1f2a3b4c5d6e",
       speaker: "ai_expert",
-      text: "You've mastered the basics of Mulmocast. From here, we'll take your creativity to the next level with more advanced features.",
+      text: "You've mastered the basics of ForDoAnalysisEdit. From here, we'll take your creativity to the next level with more advanced features.",
       imagePrompt:
         "A futuristic creative command center. Holographic displays are lined up, and AI icons are glowing. A cyberpunk-style illustration.",
     },
@@ -205,7 +205,7 @@ export const intro03_en = {
     {
       id: "d07e8a0c1-f2d3-4a5b-8c9e-1f2a3b4c5d6e",
       speaker: "tech_guide",
-      text: "Mulmocast has modes tailored to your skill level. Start with Beginner mode, and as you get used to it, try the AI chat feature in Intermediate mode, or the advanced settings and various slide templates in Advanced mode.",
+      text: "ForDoAnalysisEdit has modes tailored to your skill level. Start with Beginner mode, and as you get used to it, try the AI chat feature in Intermediate mode, or the advanced settings and various slide templates in Advanced mode.",
       image: {
         type: "markdown",
         markdown: [
@@ -316,7 +316,7 @@ export const intro03_en = {
     {
       id: "d13e8a0c1-f2d3-4a5b-8c9e-1f2a3b4c5d6e",
       speaker: "tech_guide",
-      text: "Thus, in Mulmocast, you can efficiently produce richly expressive video content by combining various formats of slides.",
+      text: "Thus, in ForDoAnalysisEdit, you can efficiently produce richly expressive video content by combining various formats of slides.",
       image: {
         type: "markdown",
         markdown: [
@@ -332,7 +332,7 @@ export const intro03_en = {
     {
       id: "d14e8a0c1-f2d3-4a5b-8c9e-1f2a3b4c5d6e",
       speaker: "creator_pro",
-      text: "With this, you are now one of us, an AI creator. Please exert your human-like creativity with the help of technology. You can do it with Mulmocast, you can start! The future of content creation is in your hands.",
+      text: "With this, you are now one of us, an AI creator. Please exert your human-like creativity with the help of technology. You can do it with ForDoAnalysisEdit, you can start! The future of content creation is in your hands.",
       imagePrompt:
         "A creator directing AI in a futuristic command room. Surrounded by holographic displays. In a hopeful sci-fi anime style.",
     },

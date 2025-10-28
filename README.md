@@ -28,7 +28,7 @@ There are two ways to build the application:
 # Build the app for your platform
 yarn run package
 
-# The built app will be in: out/mulmocast-app-darwin-arm64/
+# The built app will be in: out/ForDoAnalysis改-app-darwin-arm64/
 ```
 
 ### Option 2: GitHub Actions Build

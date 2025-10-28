@@ -1,6 +1,6 @@
-# MulmoCast App テストガイド
+# ForDoAnalysis改 App テストガイド
 
-このディレクトリには MulmoCast Electron アプリの Playwright テストが含まれています。
+このディレクトリには ForDoAnalysis改 Electron アプリの Playwright テストが含まれています。
 
 ## テストファイル
 * `automated_`: Electron アプリ未起動時に実行するものです。GitHub Actions 向けにも利用します。

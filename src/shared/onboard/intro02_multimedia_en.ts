@@ -67,11 +67,11 @@ export const intro02_en = {
     {
       id: "c1e8a0c1-f2d3-4a5b-8c9e-1f2a3b4c5d6e",
       speaker: "presenter",
-      text: "The true power of Mulmocast is the ability to combine various media. First, let's start with generative AI images.",
+      text: "The true power of ForDoAnalysisEdit is the ability to combine various media. First, let's start with generative AI images.",
       image: {
         type: "markdown",
         markdown: [
-          "# 🎨 Expressive Power of MulmoCast",
+          "# 🎨 Expressive Power of ForDoAnalysis Edit",
           "",
           "🖼️ **Generative AI Images** - Turn imagination into reality",
           "",

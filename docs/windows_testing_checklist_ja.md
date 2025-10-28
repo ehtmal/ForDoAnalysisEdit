@@ -1,4 +1,4 @@
-# MulmoCast App テストチェックリスト (Windows)
+# ForDoAnalysis改 App テストチェックリスト (Windows)
 
 Windows リリース前に実施するチェックリストです。  
 `x.x.x` と `yy` を実際のリリースバージョンへ置き換えて利用します。

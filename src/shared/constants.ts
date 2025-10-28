@@ -363,7 +363,7 @@ export const VIEW_MODE = {
   grid: "grid",
 } as const;
 
-export const INITIAL_DESCRIPTION = "mulmocast";
+export const INITIAL_DESCRIPTION = "ForDoAnalysis改";
 
 export const IMAGE_PARAMS_DEFAULT_VALUES: MulmoImageParams = {
   provider: "openai",

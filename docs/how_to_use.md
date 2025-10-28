@@ -1,8 +1,8 @@
-# MulmoCast App 使用方法ガイド
+# ForDoAnalysis改 App 使用方法ガイド
 
 アプリケーションのダウンロード、基本的な使用方法を解説します。
 
-具体的な使い方は [MulmoCast 使用方法ガイド その2](./procedure_onboarding.md) を参照してください。
+具体的な使い方は [ForDoAnalysis改 使用方法ガイド その2](./procedure_onboarding.md) を参照してください。
 
 ## アプリケーション ダウンロード方法
 
@@ -20,19 +20,19 @@ https://github.com/receptron/mulmocast-app/actions/workflows/ci-mac.yml
 3. 画面下部の「Artifacts」セクションで「macOS-release-files」をクリックしてダウンロードします
    ![GitHub Actions アーティファクトのダウンロード](images/howtouse-github-artifacts-download.png)
 
-4. ダウンロード完了後、ZIPファイルを解凍します。解凍されたファイルの中に `MulmoCast.app` があります
+4. ダウンロード完了後、ZIPファイルを解凍します。解凍されたファイルの中に `ForDoAnalysis改.app` があります
 
-5. `MulmoCast.app` を `アプリケーションフォルダ` にドラッグ&ドロップします。これでインストール完了です
+5. `ForDoAnalysis改.app` を `アプリケーションフォルダ` にドラッグ&ドロップします。これでインストール完了です
    ![アプリケーションフォルダへのドラッグ&ドロップ](images/howtouse-drag-drop-applications.png)
 
 6. アプリケーションの初回起動時は以下が表示されます。「開く」を選択してください。  
     ![pop up at open app](<images/howtouse_popup_alert_first_time.png>)
 
 ### Mac版 アプリの更新方法
-MulmoCast アプリは日々更新しております。  
+ForDoAnalysis改 アプリは日々更新しております。  
 更新版を利用するには、上記と同様の方法でアプリケーションをダウンロードし、アプリケーションフォルダにドラッグ&ドロップしてください。
 
-この時、`“MulmoCast.app”という名前の項目がすでにこの場所にあります。現在移動中の項目で置き換えますか?` と表示されますので、「置き換える」を選択してください。  
+この時、`“ForDoAnalysis改.app”という名前の項目がすでにこの場所にあります。現在移動中の項目で置き換えますか?` と表示されますので、「置き換える」を選択してください。  
 
 ![alert replace](images/howtouse_replace_alert2.png)
 

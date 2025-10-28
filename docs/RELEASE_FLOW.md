@@ -50,12 +50,12 @@ s3://dev/
   releases/
     darwin/arm64/
       RELEASES.json
-      MulmoCast-darwin-arm64-<version>.zip
+      ForDoAnalysis改-darwin-arm64-<version>.zip
     win/x64/
       RELEASES
       Setup.exe
-      MulmoCast-<version>-full.nupkg
-      MulmoCast-<version>-delta.nupkg
+      ForDoAnalysis改-<version>-full.nupkg
+      ForDoAnalysis改-<version>-delta.nupkg
 ```
 
 ### Prod 環境
@@ -64,11 +64,11 @@ s3://prod/
   releases/
     darwin/arm64/
       RELEASES.json
-      MulmoCast-darwin-arm64-<version>.zip
+      ForDoAnalysis改-darwin-arm64-<version>.zip
     win/x64/
       RELEASES
       Setup.exe
-      MulmoCast-<version>-full.nupkg
-      MulmoCast-<version>-delta.nupkg
+      ForDoAnalysis改-<version>-full.nupkg
+      ForDoAnalysis改-<version>-delta.nupkg
 ```
 

@@ -19,7 +19,7 @@ async function testChangeLanguage(targetLanguage: "en" | "ja"): Promise<void> {
   };
 
   try {
-    console.log("=== MulmoCast Language Change Test ===");
+    console.log("=== ForDoAnalysis改 Language Change Test ===");
     console.log(`Target language: ${targetLanguage}`);
     console.log("1. Waiting for CDP to be available...");
 

@@ -644,7 +644,7 @@ async function runGenerationE2ETest(): Promise<void> {
   };
 
   try {
-    console.log("=== MulmoCast Generation E2E Test ===");
+    console.log("=== ForDoAnalysis改 Generation E2E Test ===");
     console.log("1. Starting Electron app with yarn start...");
 
     // Start Electron app with electron-forge directly to avoid PATH and shell security warnings

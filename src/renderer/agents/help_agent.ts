@@ -42,8 +42,8 @@ const LINKS = {
     label: "GitHub Actions (Windows)",
     url: "https://github.com/receptron/mulmocast-app/actions/workflows/ci-ms.yml",
   },
-  howToUse1: { label: "MulmoCast App 使用方法ガイド", url: "./how_to_use.md" },
-  howToUse2: { label: "MulmoCast 使用方法ガイド その2", url: "./procedure_onboarding.md" },
+  howToUse1: { label: "ForDoAnalysis改 App 使用方法ガイド", url: "./how_to_use.md" },
+  howToUse2: { label: "ForDoAnalysis改 使用方法ガイド その2", url: "./procedure_onboarding.md" },
 };
 
 // --- knowledge base (setup 章は含めない) ---
@@ -59,7 +59,7 @@ const HELP_DB: Record<HelpType, HelpPayload> = {
         steps: [
           "GitHub Actions から macOS の最新成功ワークフローを開く",
           "Artifacts の `macOS-release-files` をダウンロードして ZIP を展開",
-          "`MulmoCast.app` を Applications へドラッグ＆ドロップ（更新時は「置き換える」）",
+          "`ForDoAnalysis改.app` を Applications へドラッグ＆ドロップ（更新時は「置き換える」）",
           "初回起動の警告は「開く」を選択",
         ],
         links: [LINKS.macActions],
@@ -103,7 +103,7 @@ const HELP_DB: Record<HelpType, HelpPayload> = {
         steps: [
           "GitHub Actions の最新成功ワークフローを開く",
           "`macOS-release-files` をダウンロードして ZIP 展開",
-          "`MulmoCast.app` を Applications へ移動（更新時は「置き換える」）",
+          "`ForDoAnalysis改.app` を Applications へ移動（更新時は「置き換える」）",
           "初回起動の警告は「開く」",
         ],
         links: [LINKS.macActions],
@@ -357,7 +357,7 @@ const mulmoCastHelpAgentInfo: AgentFunctionInfo = {
       },
     },
   ],
-  description: "MulmoCast Help Agent (LLM 後段加工向け JSON 出力)",
+  description: "ForDoAnalysis改 Help Agent (LLM 後段加工向け JSON 出力)",
   repository: "",
   category: ["net"],
   author: "Receptron team",

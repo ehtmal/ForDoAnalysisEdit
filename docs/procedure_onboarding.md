@@ -1,5 +1,5 @@
-# MulmoCast 使用方法ガイド その2
-この資料では具体的な使い方を説明します。基本的な使い方等は [MulmoCast App 使用方法ガイド](./how_to_use.md) を参照してください。
+# ForDoAnalysis改 使用方法ガイド その2
+この資料では具体的な使い方を説明します。基本的な使い方等は [ForDoAnalysis改 App 使用方法ガイド](./how_to_use.md) を参照してください。
 
 ## 準備するもの
 - macOS が動作するパソコン（Windows、Linux での動作は未確認のため）

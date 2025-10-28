@@ -1,10 +1,10 @@
-# Contributing to MulmoCast
+# Contributing to ForDoAnalysis改
 
-Thank you for your interest in contributing to MulmoCast App! This guide will help you understand the project structure and development workflow.
+Thank you for your interest in contributing to ForDoAnalysis改 App! This guide will help you understand the project structure and development workflow.
 
 ## Project Overview
 
-MulmoCast is an Electron application with a React frontend and Express backend. The application provides a modern desktop interface for managing multimedia casting projects.
+ForDoAnalysis改 is an Electron application with a React frontend and Express backend. The application provides a modern desktop interface for managing multimedia casting projects.
 
 ## Technology Stack
 

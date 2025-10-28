@@ -7,7 +7,7 @@ const lang = {
   // UI common vocabulary (reuse-focused)
   ui: {
     common: {
-      applicationName: "MulmoCast",
+      applicationName: "ForDoAnalysis改",
       // Navigation
       back: "戻る",
       previous: "前へ",
@@ -317,21 +317,21 @@ const lang = {
     },
   },
   onboarding: {
-    title: "MulmoCastへようこそ",
+    title: "ForDoAnalysis改へようこそ",
     description: "AIアシスタントをセットアップして始めましょう",
     welcome: {
-      title: "MulmoCastへようこそ！",
+      title: "ForDoAnalysis改へようこそ！",
       description: "AIアシスタントをセットアップして始めましょう",
-      whatIsMulmoCast: "MulmoCastとは？",
+      whatIsMulmoCast: "ForDoAnalysis改とは？",
       whatIsMulmoCastDescription:
-        "MulmoCastは、様々なAIモデルを使用して動画、画像、音声を生成するマルチモーダルなAIツールです。",
+        "ForDoAnalysis改は、様々なAIモデルを使用して動画、画像、音声を生成するマルチモーダルなAIツールです。",
       setupGuide:
         "これから数ステップで設定を行います。お好みの言語モデルとAPIキーを設定して、素晴らしいコンテンツの作成を始めましょう！",
     },
     completeBtn: "セットアップ完了",
     complete: {
       title: "セットアップ完了！",
-      description: "おめでとうございます！MulmoCastのセットアップが完了しました。",
+      description: "おめでとうございます！ForDoAnalysis改のセットアップが完了しました。",
       nextSteps: "これから何ができる？",
       createProjectDescription: "新しいプロジェクトを作成して、AIアシスタントと一緒にコンテンツ制作を始めましょう！",
       features: {
@@ -358,7 +358,7 @@ const lang = {
       titleDesc: "タイトル（降順）",
     },
     empty: {
-      welcome: "ようこそ、MulmoCast へ！",
+      welcome: "ようこそ、ForDoAnalysis改 へ！",
       introduction1: "まずは「{createNew}」ボタンを押してみましょう。",
       introduction2:
         "サンプル入りのプロジェクトが自動で用意されます。あとは「{generateVideo}」ボタンを押すだけで体験できます。",

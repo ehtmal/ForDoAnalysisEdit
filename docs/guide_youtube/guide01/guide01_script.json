@@ -8,8 +8,8 @@
     "height": 720
   },
   "lang": "ja",
-  "title": "MulmoCast 初回セットアップ＆動画生成マニュアル",
-  "description": "MulmoCastの初回起動時のセットアップから、サンプルプロジェクトを利用して最初の動画を生成・保存するまでの一連の手順を解説するガイド",
+  "title": "ForDoAnalysis改 初回セットアップ＆動画生成マニュアル",
+  "description": "ForDoAnalysis改の初回起動時のセットアップから、サンプルプロジェクトを利用して最初の動画を生成・保存するまでの一連の手順を解説するガイド",
   "speechParams": {
     "speakers": {
       "Presenter": {
@@ -39,8 +39,8 @@
       "image": {
         "type": "markdown",
         "markdown": [
-          "# MulmoCast Onboarding & Video Generation Manual",
-          "# MulmoCast オンボーディング＆動画生成マニュアル",
+          "# ForDoAnalysis改 Onboarding & Video Generation Manual",
+          "# ForDoAnalysis改 オンボーディング＆動画生成マニュアル",
           "",
           "## Complete Guide from Setup to First Video",
           "## セットアップから最初の動画生成まで完全ガイド",
@@ -83,15 +83,15 @@
       "image": {
         "type": "markdown",
         "markdown": [
-          "### Welcome to MulmoCast - Language Selection <br> Welcome to MulmoCast - 言語選択",
+          "### Welcome to ForDoAnalysis改 - Language Selection <br> Welcome to ForDoAnalysis改 - 言語選択",
           "",
           "English",
-          "- \"Welcome to MulmoCast\" popup appears",
+          "- \"Welcome to ForDoAnalysis改\" popup appears",
           "- Select Display Language (English shown in image)",
           "- Click [Next] button in bottom right",
           "",
           "日本語",
-          "- 「Welcome to MulmoCast」ポップアップが表示",
+          "- 「Welcome to ForDoAnalysis改」ポップアップが表示",
           "- Display Language を選択（画像では English）",
           "- 右下の [次へ] ボタンをクリック"
         ]
