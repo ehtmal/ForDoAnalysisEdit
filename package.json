@@ -1,13 +1,13 @@
 {
-  "name": "mulmocast-app",
-  "productName": "MulmoCast",
+  "name": "fordoanalysis-edit",
+  "productName": "ForDoAnalysis改",
   "version": "1.0.2",
-  "description": "MulmoCast",
+  "description": "ForDoAnalysis改",
   "main": ".vite/build/main.js",
   "scripts": {
-    "start": "NODE_ENV=development electron-forge start",
+    "start": "cross-env NODE_ENV=development electron-forge start",
     "rebuild:native": "npx electron-rebuild -f",
-    "dev": "NODE_ENV=development vite --config vite.renderer.config.ts",
+    "dev": "cross-env NODE_ENV=development vite --config vite.renderer.config.ts",
     "package": "npx puppeteer browsers install chrome --path=./chromium && electron-forge package",
     "make:local": "bash -c 'set -a && source .env && set +a && npx puppeteer browsers install chrome --path=./chromium && electron-forge make'",
     "make:ci": "npx puppeteer browsers install chrome --path=./chromium && electron-forge make",
@@ -23,13 +23,13 @@
     "lint": "yarn run dumpi18n && eslint --ext .js,.ts,.vue src test",
     "lint:fix": "eslint --ext .js,.ts,.vue src --fix",
     "lint:vue": "vue-tsc --noEmit --project tsconfig.vue.json",
-    "test": "NODE_ENV=test npx tsx --test ./test/test_*.ts",
+    "test": "cross-env NODE_ENV=test npx tsx --test ./test/test_*.ts",
     "type": "yarn run lint && yarn run type-check",
     "type-check": "tsc --noEmit -p ./src/renderer/tsconfig.json"
   },
   "keywords": [],
   "author": {
-    "name": "receptron team"
+    "name": "関屋 紘之"
   },
   "license": "MIT",
   "devDependencies": {
@@ -55,6 +55,7 @@
     "@vue/eslint-config-typescript": "^14.6.0",
     "bufferutil": "^4.0.9",
     "electron": "39.0.0",
+    "cross-env": "^10.1.0",
     "electron-devtools-installer": "^4.0.0",
     "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
