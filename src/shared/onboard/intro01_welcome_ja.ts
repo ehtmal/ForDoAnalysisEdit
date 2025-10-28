@@ -70,20 +70,20 @@ export const intro01_ja = {
     audioVolume: 1,
     suppressSpeech: false,
   },
-  title: "導入1. ようこそ、マルモキャスト へ!! ",
+  title: "導入1. ようこそ、ForDoAnalysis改 へ!! ",
   description: "右側の「動画生成ボタン」を押してください。動画生成が完了してから動画をご覧ください。",
   lang: "ja",
   beats: [
     {
       id: "b1e8a0c1-f2d3-4a5b-8c9e-1f2a3b4c5d6e",
       speaker: "narrator",
-      text: "ようこそ、マルモキャスト へ",
+      text: "ようこそ、ForDoAnalysis改 へ",
       image: {
         type: "markdown",
         markdown: [
           "<div style='display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center;'>",
           "",
-          "# ようこそ マルモキャストへ",
+          "# ようこそ ForDoAnalysis改へ",
           "",
           "</div>",
         ],
@@ -98,13 +98,13 @@ export const intro01_ja = {
     {
       id: "b3e8a0c1-f2d3-4a5b-8c9e-1f2a3b4c5d6e",
       speaker: "guide",
-      text: "マルモキャストなら、言葉で伝えるだけで素敵な動画が作れます。",
+      text: "ForDoAnalysis改なら、言葉で伝えるだけで素敵な動画が作れます。",
       imagePrompt: "言葉が映像に変わっていく様子。明るいピクセルアート風。",
     },
     {
       id: "b4e8a0c1-f2d3-4a5b-8c9e-1f2a3b4c5d6e",
       speaker: "creator",
-      text: "今すぐマルモキャストで創造の旅を始めましょう！",
+      text: "今すぐForDoAnalysis改で創造の旅を始めましょう！",
       imagePrompt: "創造の翼を持つ人が、未来の作品が浮かぶ空を飛んでいる。希望に満ちた朝日。日本の90年代アニメ風。",
     },
     {

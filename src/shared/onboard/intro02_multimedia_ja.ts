@@ -66,7 +66,7 @@ export const intro02_ja = {
     {
       id: "c1e8a0c1-f2d3-4a5b-8c9e-1f2a3b4c5d6e",
       speaker: "presenter",
-      text: "マルモキャストの真の力は、様々なメディアを組み合わせられることです。まずは、生成AI画像から始めてみましょう。",
+      text: "ForDoAnalysis改の真の力は、様々なメディアを組み合わせられることです。まずは、生成AI画像から始めてみましょう。",
       image: {
         type: "markdown",
         markdown: [
