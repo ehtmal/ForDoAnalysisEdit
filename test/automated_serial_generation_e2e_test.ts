@@ -217,7 +217,7 @@ async function setupJsonContent(
             if (source?.kind === "path" && source.path === "../../assets/images/mulmocast_credit.png") {
               source.kind = "url";
               source.url =
-                "https://raw.githubusercontent.com/receptron/mulmocast-cli/refs/heads/main/assets/images/mulmocast_credit.png";
+                "https://fordoanalysis-edit.s3.ap-northeast-1.amazonaws.com/assets/images/mulmo_credit.png";
               delete source.path;
               hasChanges = true;
             }

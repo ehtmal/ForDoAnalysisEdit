@@ -1,0 +1,16 @@
+diff --git a/node_modules/mulmocast/assets/images/mulmocast_credit.png b/node_modules/mulmocast/assets/images/mulmocast_credit.png
+index 55b0319..7fdfe37 100644
+Binary files a/node_modules/mulmocast/assets/images/mulmocast_credit.png and b/node_modules/mulmocast/assets/images/mulmocast_credit.png differ
+diff --git a/node_modules/mulmocast/lib/utils/context.js b/node_modules/mulmocast/lib/utils/context.js
+index 8afc28c..cec4dd8 100644
+--- a/node_modules/mulmocast/lib/utils/context.js
++++ b/node_modules/mulmocast/lib/utils/context.js
+@@ -12,7 +12,7 @@ const mulmoCredit = (speaker) => {
+             type: "image",
+             source: {
+                 kind: "url",
+-                url: "https://github.com/receptron/mulmocast-cli/raw/refs/heads/main/assets/images/mulmocast_credit.png",
++                url: "https://fordoanalysis-edit.s3.ap-northeast-1.amazonaws.com/assets/images/mulmo_credit.png",
+             },
+         },
+         audio: {

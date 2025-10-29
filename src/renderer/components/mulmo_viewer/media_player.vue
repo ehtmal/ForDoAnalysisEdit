@@ -76,7 +76,7 @@ const audioSyncRef = ref();
 const audioRef = ref();
 const imageRef = ref();
 
-const mulmoImage = "https://github.com/receptron/mulmocast-cli/blob/main/assets/images/mulmocast_credit.png?raw=true";
+const mulmoImage = "https://fordoanalysis-edit.s3.ap-northeast-1.amazonaws.com/assets/images/mulmo_credit.png";
 
 const handleVideoPlay = () => {
   if (audioSyncRef.value) {

@@ -25,7 +25,8 @@
     "lint:vue": "vue-tsc --noEmit --project tsconfig.vue.json",
     "test": "cross-env NODE_ENV=test npx tsx --test ./test/test_*.ts",
     "type": "yarn run lint && yarn run type-check",
-    "type-check": "tsc --noEmit -p ./src/renderer/tsconfig.json"
+    "type-check": "tsc --noEmit -p ./src/renderer/tsconfig.json",
+    "postinstall": "patch-package"
   },
   "keywords": [],
   "author": {
@@ -54,8 +55,8 @@
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/eslint-config-typescript": "^14.6.0",
     "bufferutil": "^4.0.9",
-    "electron": "39.0.0",
     "cross-env": "^10.1.0",
+    "electron": "39.0.0",
     "electron-devtools-installer": "^4.0.0",
     "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
@@ -66,7 +67,9 @@
     "eslint-plugin-vue": "^10.5.1",
     "globals": "^16.4.0",
     "jsonc-eslint-parser": "^2.4.1",
+    "patch-package": "^8.0.1",
     "playwright": "^1.56.1",
+    "postinstall-postinstall": "^2.1.0",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.7.1",
     "tailwindcss": "^4.1.16",
