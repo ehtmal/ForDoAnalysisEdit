@@ -412,12 +412,12 @@ const lang = {
       yaml: {
         tabLabel: "YAML",
         mode: "YAML Mode",
-        modeDescription: "Complete MulmoScript editing",
+        modeDescription: "Complete FordoScript editing",
       },
       json: {
         tabLabel: "JSON",
         mode: "JSON Mode",
-        modeDescription: "Complete MulmoScript editing",
+        modeDescription: "Complete FordoScript editing",
       },
       media: {
         tabLabel: "BEAT",
@@ -493,12 +493,12 @@ const lang = {
       },
     },
     download: {
-      mulmoScript: "Download MulmoScript",
+      mulmoScript: "Download FordoScript",
     },
     chat: {
       openPanel: "Open AI Assistant Chat panel",
       title: "Story Creation with AI Chat",
-      aiPoweredGuide: "AI-Powered MulmoScript Generation Guide",
+      aiPoweredGuide: "AI-Powered FordoScript Generation Guide",
       beginnerDescription: "Create stories through consultation with AI.",
       advancedDescription: "Use ChatGPT or other AI tools to generate your Script content with these proven prompts",
       enterMessage: "Enter your message:",
@@ -781,7 +781,7 @@ const lang = {
     },
     mulmo: {
       modal: {
-        dialogTitle: "Mulmo Viewer",
+        dialogTitle: "Fordo Viewer",
         dialogDescription: "Click outside to close",
       },
     },
@@ -835,7 +835,7 @@ const lang = {
     },
     error: {
       unknownError: "Unknown error occurred",
-      noContext: "Inlvaid MulmoScript.",
+      noContext: "Inlvaid FordoScript.",
       // action, type, target
       movie: {
         fileNotExist: {

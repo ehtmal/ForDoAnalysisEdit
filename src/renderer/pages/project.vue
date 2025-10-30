@@ -515,7 +515,7 @@ const downloadMulmoScript = () => {
 
   const a = document.createElement("a");
   a.href = url;
-  a.download = "mulmoScript.json";
+  a.download = "FordoScript.json";
   a.click();
 
   URL.revokeObjectURL(url);

@@ -8,7 +8,7 @@ type HelpType =
   | "media" // 画像/動画/スライド操作
   | "style" // 生成パラメータ（Canvas/音声/画像/動画/字幕 等）
   | "generate" // 出力設定＆生成（Movie/Podcast/PDF）
-  | "viewer" // Mulmo Viewer の使い方
+  | "viewer" // Fordo Viewer の使い方
   | "dev" // 開発版（参考）
   | "all"; // 目次のみ
 
@@ -85,7 +85,7 @@ const HELP_DB: Record<HelpType, HelpPayload> = {
           "出力設定で Movie / Podcast / PDF をチェック",
           "「コンテンツ生成」をクリック（右下に進捗表示）",
           "完了後、成果物エリアに各ファイルが並ぶ",
-          "右上の拡大ボタンで Mulmo Viewer を開いて再生・言語切替",
+          "右上の拡大ボタンで Fordo Viewer を開いて再生・言語切替",
         ],
       },
     ],
@@ -221,7 +221,7 @@ const HELP_DB: Record<HelpType, HelpPayload> = {
 
   viewer: {
     type: "viewer",
-    title: "Mulmo Viewer",
+    title: "Fordo Viewer",
     summary: "画像/動画・音声・テキストをビートごとに視聴。言語切替にも対応。",
     sections: [
       {
@@ -257,7 +257,7 @@ const HELP_DB: Record<HelpType, HelpPayload> = {
       { id: "media", title: "Media（画像/動画/スライド）", summary: "取得・生成・スライド" },
       { id: "style", title: "Style / Parameters", summary: "生成に効く各種パラメータ" },
       { id: "generate", title: "出力設定 & 生成", summary: "Movie / Podcast / PDF" },
-      { id: "viewer", title: "Mulmo Viewer", summary: "視聴＆言語切替" },
+      { id: "viewer", title: "Fordo Viewer", summary: "視聴＆言語切替" },
       { id: "dev", title: "開発版（参考）", summary: "ソースから起動" },
     ],
   },

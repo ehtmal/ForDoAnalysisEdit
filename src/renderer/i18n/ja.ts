@@ -410,12 +410,12 @@ const lang = {
       yaml: {
         tabLabel: "YAML",
         mode: "YAML モード",
-        modeDescription: "MulmoScript を直接編集します",
+        modeDescription: "FordoScript を直接編集します",
       },
       json: {
         tabLabel: "JSON",
         mode: "JSON モード",
-        modeDescription: "MulmoScript を直接編集します",
+        modeDescription: "FordoScript を直接編集します",
       },
       media: {
         tabLabel: "BEAT",
@@ -490,12 +490,12 @@ const lang = {
       },
     },
     download: {
-      mulmoScript: "MulmoScriptをダウンロード",
+      mulmoScript: "FordoScriptをダウンロード",
     },
     chat: {
       openPanel: "AIチャットを開く",
       title: "AIチャットでストーリー作り",
-      aiPoweredGuide: "AIで作るMulmoScriptガイド",
+      aiPoweredGuide: "AIで作るFordoScriptガイド",
       beginnerDescription: "AIに相談しながらストーリーを作成できます。",
       advancedDescription: "用意されたプロンプトでAIが台本案を仕上げます。",
       enterMessage: "AIへのメッセージ",
@@ -834,7 +834,7 @@ const lang = {
     },
     error: {
       unknownError: "不明なエラーです",
-      noContext: "MulmoScriptが正しくありません",
+      noContext: "FordoScriptが正しくありません",
       // action, type, target
       movie: {
         fileNotExist: {
