@@ -420,7 +420,7 @@ const lang = {
         modeDescription: "Complete FordoScript editing",
       },
       media: {
-        tabLabel: "BEAT",
+        tabLabel: "BEAT({beats})",
         mode: "Edit Story",
         modeDescription: "Beat-by-beat media editing and preview",
       },
@@ -500,6 +500,8 @@ const lang = {
       title: "Story Creation with AI Chat",
       aiPoweredGuide: "AI-Powered FordoScript Generation Guide",
       beginnerDescription: "Create stories through consultation with AI.",
+      llmBehaviorNote:
+        'You can revert LLM-generated results using "Back" in "{scriptPanel}", or have the LLM regenerate the entire script.',
       advancedDescription: "Use ChatGPT or other AI tools to generate your Script content with these proven prompts",
       enterMessage: "Enter your message:",
       clearChat: "Clear chat",
@@ -514,6 +516,7 @@ const lang = {
       createScript: "Create Script",
       exampleMessage: "ex) Thank you very much! Please proceed with the creation.",
       templates: {
+        none: "No style",
         akira_comic: "Akira style",
         ani: "Presentation by Ani",
         business: "Business presentation",
@@ -547,6 +550,8 @@ const lang = {
         story: "Story",
       },
       continue: "continue",
+      styleTemplateNote:
+        "Select a style and press '{createScriptButton}' to generate a script based on the selected style.",
     },
   },
   beat: {
@@ -791,6 +796,9 @@ const lang = {
     audio: "Audio:",
   },
   notify: {
+    mulmoScript: {
+      successMessage: "Success to create MulmoScript!!",
+    },
     audio: {
       successMessage: "Audio generated successfully",
       errorMessage: "Failed to generate audio",
@@ -872,10 +880,16 @@ const lang = {
           movieReplicateAgent: "An error occurred with video generation (Replicate).",
           lipSyncReplicateAgent: "An error occurred with lip sync (Replicate).",
           soundEffectReplicateAgent: "An error occurred with sound effect generation (Replicate).",
+          videoDuration:
+            "The specified video duration is not supported by the model. Please adjust to a supported duration and try again.",
+          unsupportedModel:
+            "The selected model is not available for this video generation. Please select a compatible model.",
           openAIError: {
             need_verified_organization:
               "Image generation (OpenAI) error: Please complete organization verification to use the gpt-image-1 model.  https://platform.openai.com/settings/organization/general",
             billing_hard_limit_reached: "Image generation (OpenAI) error: Please check your OpenAI API credit balance",
+            moderation_blocked:
+              "Image generation blocked: Content violates OpenAI's usage policies. Please modify your prompt.",
           },
         },
       },
@@ -927,6 +941,8 @@ const lang = {
       translate: {
         apiError: {
           translateBeat: "An error occurred during translation.",
+          multiLingualFile:
+            "Failed to generate translation file. Please check your settings and target data, then try again.",
         },
       },
       apiKeyMissing: {
@@ -1143,6 +1159,32 @@ const lang = {
     settings: "Settings",
     FAQ: "FAQ",
     ASK: "ASK/Request",
+    undo: "Undo",
+    redo: "Redo",
+    cut: "Cut",
+    copy: "Copy",
+    paste: "Paste",
+    pasteAndMatchStyle: "Paste and Match Style",
+    delete: "Delete",
+    selectAll: "Select All",
+    substitutions: "Substitutions",
+    showSubstitutions: "Show Substitutions",
+    toggleSmartQuotes: "Smart Quotes",
+    toggleSmartDashes: "Smart Dashes",
+    toggleTextReplacement: "Text Replacement",
+    speech: "Speech",
+    startSpeaking: "Start Speaking",
+    stopSpeaking: "Stop Speaking",
+    reload: "Reload",
+    forceReload: "Force Reload",
+    toggleDevTools: "Toggle Developer Tools",
+    togglefullscreen: "Toggle Full Screen",
+    minimize: "Minimize",
+    zoom: "Zoom",
+    front: "Bring All to Front",
+    close: "Close",
+    quit: "Quit",
+    about: "About MulmoCast",
   },
 };
 

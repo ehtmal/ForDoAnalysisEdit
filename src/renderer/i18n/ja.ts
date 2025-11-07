@@ -418,7 +418,7 @@ const lang = {
         modeDescription: "FordoScript を直接編集します",
       },
       media: {
-        tabLabel: "BEAT",
+        tabLabel: "BEAT({beats})",
         mode: "ストーリー編集",
         modeDescription: "Beatごとの音声/画像/動画の編集とプレビュー",
       },
@@ -497,6 +497,8 @@ const lang = {
       title: "AIチャットでストーリー作り",
       aiPoweredGuide: "AIで作るFordoScriptガイド",
       beginnerDescription: "AIに相談しながらストーリーを作成できます。",
+      llmBehaviorNote:
+        "LLMによる生成結果は「{scriptPanel}」の「戻る」で戻せます。スクリプト全体を再生成させることもできます。",
       advancedDescription: "用意されたプロンプトでAIが台本案を仕上げます。",
       enterMessage: "AIへのメッセージ",
       clearChat: "会話をリセット",
@@ -511,6 +513,7 @@ const lang = {
       createScript: "台本を作成",
       exampleMessage: "例）旅行紹介動画の構成を手伝って。",
       templates: {
+        none: "スタイルなし",
         akira_comic: "アキラ風マンガ",
         ani: "Aniのプレゼン",
         business: "ビジネスプレゼン",
@@ -544,6 +547,8 @@ const lang = {
         story: "複数人/物語",
       },
       continue: "続けて",
+      styleTemplateNote:
+        "スタイルを選択して「{createScriptButton}」を押すと、選択したスタイルに合わせてスクリプトが生成されます。",
     },
   },
   beat: {
@@ -789,6 +794,9 @@ const lang = {
     audio: "音声:",
   },
   notify: {
+    mulmoScript: {
+      successMessage: "MulmoScript生成成功!!",
+    },
     audio: {
       successMessage: "音声生成成功!!",
       errorMessage: "音声生成失敗",
@@ -871,11 +879,15 @@ const lang = {
           movieReplicateAgent: "動画生成（Replicate）でエラーが発生しました。",
           lipSyncReplicateAgent: "リップシンク（Replicate）でエラーが発生しました。",
           soundEffectReplicateAgent: "効果音生成（Replicate）でエラーが発生しました。",
+          videoDuration: "指定した再生時間はモデルがサポートしていません。対応する長さに変更して再度お試しください。",
+          unsupportedModel: "選択したモデルはこの動画生成では利用できません。対応モデルを選び直してください。",
           openAIError: {
             need_verified_organization:
               "画像生成（OpenAI）エラー: gpt-image-1 モデルを利用するためには組織認証行ってください。 https://platform.openai.com/settings/organization/general",
             billing_hard_limit_reached:
               "画像生成（OpenAI）でエラーが発生しました。OpenAI APIのクレジット残高を確認してください",
+            moderation_blocked:
+              "画像生成がブロックされました: コンテンツがOpenAIの利用規約に違反しています。プロンプトを修正してください。",
           },
         },
       },
@@ -930,6 +942,7 @@ const lang = {
       translate: {
         apiError: {
           translateBeat: "翻訳処理でエラーが発生しました。",
+          multiLingualFile: "翻訳結果のファイル生成に失敗しました。設定や対象データを確認してから再実行してください。",
         },
       },
       apiKeyMissing: {
@@ -1146,6 +1159,32 @@ const lang = {
     settings: "設定",
     FAQ: "よくある質問",
     ASK: "問い合わせ",
+    undo: "取り消す",
+    redo: "やり直す",
+    cut: "カット",
+    copy: "コピー",
+    paste: "ペースト",
+    pasteAndMatchStyle: "ペーストしてスタイルを合わせる",
+    delete: "削除",
+    selectAll: "すべて選択",
+    substitutions: "置換",
+    showSubstitutions: "置換を表示",
+    toggleSmartQuotes: "スマート引用符",
+    toggleSmartDashes: "スマートダッシュ",
+    toggleTextReplacement: "テキスト置換",
+    speech: "スピーチ",
+    startSpeaking: "読み上げを開始",
+    stopSpeaking: "読み上げを停止",
+    reload: "再読み込み",
+    forceReload: "強制再読み込み",
+    toggleDevTools: "開発者ツールを切り替え",
+    togglefullscreen: "フルスクリーンを切り替え",
+    minimize: "最小化",
+    zoom: "ズーム",
+    front: "すべてを手前に移動",
+    close: "閉じる",
+    quit: "終了",
+    about: "MulmoCastについて",
   },
 };
 

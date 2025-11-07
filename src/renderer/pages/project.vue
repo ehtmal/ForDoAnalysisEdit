@@ -278,6 +278,7 @@ import {
   PanelRightClose,
   PanelRightOpen,
   Expand,
+  Monitor,
 } from "lucide-vue-next";
 import dayjs from "dayjs";
 import {
@@ -312,6 +313,7 @@ import { getConcurrentTaskStatusMessageComponent } from "./project/concurrent_ta
 import { projectApi, type ProjectMetadata } from "@/lib/project_api";
 import { notifySuccess, notifyProgress, notifyError } from "@/lib/notification";
 import { setRandomBeatId } from "@/lib/beat_util.js";
+import { insertSpeakers } from "./utils";
 
 import { useMulmoEventStore, useMulmoScriptHistoryStore, useMulmoGlobalStore } from "@/store";
 
@@ -446,26 +448,6 @@ const handleUpdateMulmoViewerActiveTab = (tab: MulmoViewerTab) => {
 const mulmoScriptSchemaNoBeats = mulmoScriptSchema.extend({
   beats: z.array(mulmoBeatSchema).min(0),
 });
-
-const insertSpeakers = (data) => {
-  const existsSpeakers = data.beats.reduce((speakers, beat) => {
-    if (beat.speaker && !speakers.has(beat.speaker)) {
-      speakers.add(beat.speaker);
-    }
-    return speakers;
-  }, new Set());
-  Object.keys(data?.speechParams?.speakers ?? {}).map((speaker) => {
-    existsSpeakers.delete(speaker);
-  });
-  existsSpeakers.forEach((speaker) => {
-    data.speechParams.speakers[speaker] = {
-      displayName: {
-        en: speaker,
-      },
-      voiceId: "shimmer",
-    };
-  });
-};
 
 const formatAndPushHistoryMulmoScript = () => {
   const data = mulmoScriptSchemaNoBeats.safeParse(mulmoScriptHistoryStore.currentMulmoScript);
