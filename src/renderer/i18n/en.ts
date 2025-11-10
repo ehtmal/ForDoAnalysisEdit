@@ -741,8 +741,9 @@ const lang = {
       images: "Charactor Image",
       imagesDescription: "Select the character for this beat",
       imagesEmptyHint: "No images found. Please set references in the Ref tab.",
-      customTitle: "Custom image generation settings for this beat",
-      customDescription: "Settings configured here will only apply to this beat",
+      customTitle: "Override image generation settings for this Beat",
+      customDescription1: "Settings here apply only to this Beat.",
+      customDescription2: "If not set, the shared style settings will be used.",
     },
     audioParams: {
       title: "Audio Parameters",
@@ -907,6 +908,7 @@ const lang = {
       media: {
         tooLarge: "The maximum file size that can be add is {maxSizeMB}MB.",
         unsupportedType: "Unsupported file type: {fileType}",
+        unsupportedMovie: "Unsupported file type: movie",
       },
       audio: {
         fileNotExist: {
@@ -1185,6 +1187,9 @@ const lang = {
     close: "Close",
     quit: "Quit",
     about: "About MulmoCast",
+    hide: "Hide MulmoCast",
+    hideOthers: "Hide Others",
+    unhide: "Show All",
   },
 };
 

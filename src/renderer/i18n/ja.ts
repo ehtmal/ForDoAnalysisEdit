@@ -741,8 +741,9 @@ const lang = {
       imagesDescription: "このビートで使うキャラクターを選んでください",
       imagesEmptyHint:
         "キャラ画像は設定されていません。生成画像でキャラクターを指定する場合は、「キャラ生成」タブでキャラ画像を設定してください。",
-      customTitle: "このビート専用の画像生成設定",
-      customDescription: "ここで設定した内容は、このビートでのみ適用されます",
+      customTitle: "このビートの画像生成設定を上書きする",
+      customDescription1: "ここで設定した内容は、このビートでのみ使われます。",
+      customDescription2: "設定していない場合は、スタイルで指定した共通設定が使われます。",
     },
     audioParams: {
       title: "オーディオ設定",
@@ -905,6 +906,7 @@ const lang = {
       media: {
         tooLarge: "登録できるファイルサイズは{maxSizeMB}MBまでです",
         unsupportedType: "{fileType}ファイルはサポートされていません",
+        unsupportedMovie: "動画ファイルはサポートされていません",
         // Unsupported file type: ${fileType}
       },
       audio: {
@@ -1185,6 +1187,9 @@ const lang = {
     close: "閉じる",
     quit: "終了",
     about: "MulmoCastについて",
+    hide: "MulmoCastを非表示にする",
+    hideOthers: "その他を非表示にする",
+    unhide: "すべてを表示",
   },
 };
 

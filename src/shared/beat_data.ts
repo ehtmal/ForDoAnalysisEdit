@@ -1,6 +1,5 @@
 import { type MulmoBeat } from "mulmocast";
 import { INITIAL_DESCRIPTION } from "./constants";
-export { onboardProjects } from "./onboard";
 
 export const initMulmoScript = (title: string, lang: string = "en") => ({
   title: title,
@@ -75,6 +74,7 @@ export const beatTemplates: { key: string; beat: MulmoBeat }[] = [
       text: "",
       htmlPrompt: {
         prompt: "",
+        systemPrompt: "",
       },
     },
   },

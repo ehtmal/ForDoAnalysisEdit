@@ -3,10 +3,34 @@
 
 import { contextBridge, ipcRenderer } from "electron";
 
-contextBridge.exposeInMainWorld("electronAPI", {
+export interface ElectronAPI {
+  openFile: () => Promise<string | null>;
+  mulmoHandler: (method: string, ...args: unknown[]) => Promise<unknown>;
+  onProgress: (callback: (...args: unknown[]) => void) => void;
+  getEnv: () => Promise<unknown>;
+  project: {
+    list: () => Promise<unknown>;
+    create: (title: string, lang: string, onboardProject: number) => Promise<unknown>;
+    getProjectMetadata: (name: string) => Promise<unknown>;
+    getProjectMulmoScript: (name: string) => Promise<unknown>;
+    delete: (name: string) => Promise<unknown>;
+    saveProjectMetadata: (id: string, data: unknown) => Promise<unknown>;
+    saveProjectScript: (id: string, data: unknown) => Promise<unknown>;
+    openProjectFolder: (id: string) => Promise<unknown>;
+  };
+  updateInstall: () => Promise<unknown>;
+  settings: {
+    get: () => Promise<unknown>;
+    set: (settings: unknown) => Promise<unknown>;
+  };
+  writeClipboardText: (text: string) => Promise<unknown>;
+  onNavigate: (callback: (path: string) => void) => void;
+}
+
+const api: ElectronAPI = {
   openFile: () => ipcRenderer.invoke("dialog:openFile"),
-  mulmoHandler: (method, ...args) => ipcRenderer.invoke("mulmoHandler", method, ...args),
-  onProgress: (callback) => ipcRenderer.on("progress-update", callback),
+  mulmoHandler: (method: string, ...args: unknown[]) => ipcRenderer.invoke("mulmoHandler", method, ...args),
+  onProgress: (callback: (...args: unknown[]) => void) => ipcRenderer.on("progress-update", callback),
   getEnv: () =>
     new Promise((resolve) => {
       ipcRenderer.once("response-env", (_event, data) => resolve(data));
@@ -14,8 +38,8 @@ contextBridge.exposeInMainWorld("electronAPI", {
     }),
   project: {
     list: () => ipcRenderer.invoke("project:list"),
-    create: (title: string, lang: string, isFirstProject: boolean) =>
-      ipcRenderer.invoke("project:create", title, lang, isFirstProject),
+    create: (title: string, lang: string, onboardProject: number) =>
+      ipcRenderer.invoke("project:create", title, lang, onboardProject),
     getProjectMetadata: (name: string) => ipcRenderer.invoke("project:getProjectMetadata", name),
     getProjectMulmoScript: (name: string) => ipcRenderer.invoke("project:getProjectMulmoScript", name),
     delete: (name: string) => ipcRenderer.invoke("project:delete", name),
@@ -32,4 +56,6 @@ contextBridge.exposeInMainWorld("electronAPI", {
   onNavigate: (callback: (path: string) => void) => {
     ipcRenderer.on("navigate", (_, path) => callback(path));
   },
-});
+};
+
+contextBridge.exposeInMainWorld("electronAPI", api);
