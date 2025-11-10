@@ -264,19 +264,19 @@ const createWindow = (splashWindow?: BrowserWindow) => {
     }
   };
 
-  updateElectronApp({
-    updateSource: {
-      type: UpdateSourceType.StaticStorage,
-      baseUrl: `https://s3.aws.mulmocast.com/releases/${versionData}/${process.platform}/${process.arch}`,
-    },
-    logger: log,
-    notifyUser: true,
-    onNotifyUser: (info) => {
-      const lang = settingsManager.loadAppLanguage();
-      const notifyProps = config.messages[lang as keyof typeof config.messages].updater;
-      return makeUserNotifier(notifyProps)(info, updateCallBack);
-    },
-  });
+  // updateElectronApp({
+  //   updateSource: {
+  //     type: UpdateSourceType.StaticStorage,
+  //     baseUrl: `https://s3.aws.mulmocast.com/releases/${versionData}/${process.platform}/${process.arch}`,
+  //   },
+  //   logger: log,
+  //   notifyUser: true,
+  //   onNotifyUser: (info) => {
+  //     const lang = settingsManager.loadAppLanguage();
+  //     const notifyProps = config.messages[lang as keyof typeof config.messages].updater;
+  //     return makeUserNotifier(notifyProps)(info, updateCallBack);
+  //   },
+  // });
 };
 
 // This method will be called when Electron has finished
