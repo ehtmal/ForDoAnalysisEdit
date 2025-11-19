@@ -11,3 +11,27 @@ index 7cbb8ad..7f00f9e 100644
              },
          },
          audio: {
+diff --git a/node_modules/mulmocast/lib/utils/provider2agent.js b/node_modules/mulmocast/lib/utils/provider2agent.js
+index 96b658f0..a1b2c3d4 100644
+--- a/node_modules/mulmocast/lib/utils/provider2agent.js
++++ b/node_modules/mulmocast/lib/utils/provider2agent.js
+@@ -43,7 +43,7 @@ export const provider2ImageAgent = {
+     google: {
+         agentName: "imageGenAIAgent",
+         defaultModel: "gemini-2.5-flash-image-preview",
+-        models: ["imagen-3.0-generate-002", "imagen-4.0-generate-preview-06-06", "imagen-4.0-ultra-generate-preview-06-06", "gemini-2.5-flash-image-preview"],
++        models: ["imagen-3.0-generate-002", "imagen-4.0-generate-preview-06-06", "imagen-4.0-ultra-generate-preview-06-06", "gemini-2.5-flash-image-preview", "gemini-2.5-flash-image"],
+         keyName: "GEMINI_API_KEY",
+     },
+diff --git a/node_modules/mulmocast/lib/agents/image_genai_agent.js b/node_modules/mulmocast/lib/agents/image_genai_agent.js
+index 1234567..abcdefg 100644
+--- a/node_modules/mulmocast/lib/agents/image_genai_agent.js
++++ b/node_modules/mulmocast/lib/agents/image_genai_agent.js
+@@ -74,7 +74,7 @@ export const imageGenAIAgent = async ({ namedInputs, params, config, }) => {
+     try {
+         const ai = new GoogleGenAI({ apiKey });
+-        if (model === "gemini-2.5-flash-image-preview") {
++        if (model === "gemini-2.5-flash-image-preview" || model === "gemini-2.5-flash-image") {
+             const contents = getGeminiContents(prompt, aspectRatio, referenceImages);
+             const response = await ai.models.generateContent({ model, contents });
+             return geminiFlashResult(response);

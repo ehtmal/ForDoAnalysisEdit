@@ -76,7 +76,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { Label, Input, Card } from "@/components/ui";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -114,7 +114,14 @@ const props = withDefaults(
   }>(),
   { showTitle: true },
 );
-
+watch(
+  () => props.imageParams,
+  (newVal) => {
+    console.log(props.imageParams?.provider);
+    console.log(props.imageParams);
+    console.log(PROVIDERS.find((p) => p.value === props.imageParams?.provider)?.models);
+  },
+);
 const emit = defineEmits<{
   update: [imageParams: MulmoImageParams];
 }>();

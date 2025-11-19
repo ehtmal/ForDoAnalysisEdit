@@ -28,6 +28,7 @@
     "test": "cross-env NODE_ENV=test npx tsx --test ./test/test_*.ts",
     "type": "yarn run lint && yarn run type-check",
     "postinstall": "patch-package",
+    "clear:cache": "rm -rf .vite .vite-cache node_modules/.vite node_modules/.cache .cache && find . -type d -name '.vite' -exec rm -rf {} + 2>/dev/null || true",
     "type-check": "tsc --noEmit -p ./tsconfig.main.json && tsc --noEmit -p ./tsconfig.renderer.json",
     "type-check:main": "tsc --noEmit -p ./tsconfig.main.json",
     "type-check:renderer": "tsc --noEmit -p ./tsconfig.renderer.json"
