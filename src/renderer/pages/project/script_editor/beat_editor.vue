@@ -105,7 +105,9 @@
               @generateImageOnlyImage="generateImageOnlyImage"
             />
           </template>
-
+          <template v-else-if="beat.image.type === 'manga_16_9'">
+            <TemplateSelector />
+          </template>
           <!-- image/movie: URL or  path -->
           <template v-else-if="isMediaBeat(beat)">
             <Label class="mb-1 block">{{ t("beat.mediaFile.remoteLabel") }}</Label>
@@ -214,7 +216,7 @@
       </div>
 
       <!-- right: image preview -->
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-4" v-if="beatType !== 'manga_16_9'">
         <BeatPreviewImage
           :beat="beat"
           :index="index"
@@ -331,6 +333,7 @@ import { Badge, Button, Label, Input, Textarea, Checkbox } from "@/components/ui
 import BeatPreviewImage from "./beat_preview_image.vue";
 import BeatPreviewMovie from "./beat_preview_movie.vue";
 import BeatSelector from "./beat_selector.vue";
+import TemplateSelector from "./beat_editors/template_selector.vue";
 import BeatStyle from "./beat_style.vue";
 import SpeakerSelector from "./speaker_selector.vue";
 
@@ -349,8 +352,12 @@ import { useApiErrorNotify } from "@/composables/notify";
 
 type FileData = ArrayBuffer | string | null;
 
+type BeatWithMangaTemplate = MulmoBeat & {
+  manga_16_9?: unknown;
+};
+
 interface Props {
-  beat: MulmoBeat;
+  beat: BeatWithMangaTemplate;
   mulmoScript: MulmoScript;
   index: number;
   lang: string;

@@ -54,6 +54,18 @@ export const beatTemplates: { key: string; beat: MulmoBeat }[] = [
     },
   },
   {
+    key: "manga_16_9",
+
+    beat: {
+      speaker: "",
+      text: "",
+      image: {
+        type: "manga_16_9",
+        manga: [],
+      },
+    },
+  },
+  {
     key: "mediaFile",
     beat: {
       text: "",
@@ -153,9 +165,10 @@ export const beatTemplates: { key: string; beat: MulmoBeat }[] = [
       },
     },
   },
+  
 ];
 
 // for beginner
 export const simpleTemplates = beatTemplates.filter((temp) => {
-  return ["imagePrompt", "mediaFile", "markdown"].includes(temp.key);
+  return ["imagePrompt", "mediaFile", "markdown", "manga_16_9"].includes(temp.key);
 });

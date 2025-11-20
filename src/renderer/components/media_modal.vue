@@ -1,7 +1,7 @@
 <template>
   <Dialog v-model:open="isOpen">
     <DialogOverlay class="bg-black/10" @click="isOpen = false" />
-    <DialogContent class="max-w-3xl border-0 bg-transparent p-0 shadow-none">
+    <DialogContent class="h-[95vh] max-w-[95vw] border-0 bg-transparent p-0 shadow-none">
       <div class="sr-only">
         <DialogTitle>{{ t("viewer.mediaPreview.modal.dialogTitle") }}</DialogTitle>
         <DialogDescription>{{ t("viewer.mediaPreview.modal.dialogDescription") }}</DialogDescription>

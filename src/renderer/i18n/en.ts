@@ -82,6 +82,7 @@ const lang = {
       fetch: "Fetch",
       cancel: "Cancel",
       ok: "OK",
+      apply: "Apply",
       runningThing: "{thing} is running",
       translate: "Translate",
       set: "Set",
@@ -647,6 +648,11 @@ const lang = {
       promptField: "Prompt",
       placeholder: "Enter prompt to generate image. If empty, text is used.",
     },
+    manga_16_9: {
+      badge: "Manga 16:9",
+      label: "Manga 16:9",
+      placeholder: "Generate manga 16:9 template",
+    },
     moviePrompt: {
       badge: "Movie Prompt",
       label: "Movie Prompt",
@@ -1190,6 +1196,13 @@ const lang = {
     hide: "Hide ForDoAnalysis改",
     hideOthers: "Hide Others",
     unhide: "Show All",
+  },
+  templateSelector: {
+    title: "Template",
+    selectTemplate: "Select Template",
+    modalTitle: "Select Template",
+    modalDescription: "Choose a template from the options below",
+    selectedTemplate: "Selected Template",
   },
 };
 

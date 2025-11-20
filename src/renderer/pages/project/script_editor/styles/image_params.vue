@@ -114,14 +114,6 @@ const props = withDefaults(
   }>(),
   { showTitle: true },
 );
-watch(
-  () => props.imageParams,
-  (newVal) => {
-    console.log(props.imageParams?.provider);
-    console.log(props.imageParams);
-    console.log(PROVIDERS.find((p) => p.value === props.imageParams?.provider)?.models);
-  },
-);
 const emit = defineEmits<{
   update: [imageParams: MulmoImageParams];
 }>();

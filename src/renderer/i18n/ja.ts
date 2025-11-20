@@ -82,6 +82,7 @@ const lang = {
       fetch: "取得",
       cancel: "キャンセル",
       ok: "OK",
+      apply: "適用",
       runningThing: "{thing}を実行中",
       translate: "翻訳する",
       set: "セット",
@@ -646,6 +647,11 @@ const lang = {
       promptField: "プロンプト",
       placeholder: "画像を生成するためのプロンプトを入力してください。空の場合はテキストが使われます。",
     },
+    manga_16_9: {
+      badge: "Manga 16:9",
+      label: "Manga 16:9",
+      placeholder: "Manga 16:9テンプレートを生成",
+    },
     moviePrompt: {
       badge: "Movie Prompt",
       label: "動画生成プロンプト",
@@ -1190,6 +1196,13 @@ const lang = {
     hide: "ForDoAnalysis改を非表示にする",
     hideOthers: "その他を非表示にする",
     unhide: "すべてを表示",
+  },
+  templateSelector: {
+    title: "テンプレート",
+    selectTemplate: "テンプレートを選択",
+    modalTitle: "テンプレートを選択",
+    modalDescription: "下のオプションからテンプレートを選択してください",
+    selectedTemplate: "選択されたテンプレート",
   },
 };
 
