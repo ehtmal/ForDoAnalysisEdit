@@ -6,18 +6,18 @@
         v-for="(template, index) in templates"
         :key="index"
         :for="`template-${index}`"
-        class="relative flex cursor-pointer flex-col items-center space-y-2 rounded-md border-2 p-3 transition hover:opacity-80"
+        class="relative flex cursor-pointer flex-col items-start rounded-md border-2 p-1 transition hover:opacity-80"
         :class="selectedTemplateIndexNumber === index ? 'border-primary' : 'border-transparent'"
       >
-        <RadioGroupItem :id="`template-${index}`" :value="index.toString()" class="absolute top-3 right-3" />
+        <RadioGroupItem :id="`template-${index}`" :value="index.toString()" class="" />
         <img
           :src="template"
           :alt="t('templateSelector.templateAlt', { index: index + 1 })"
           class="max-h-16 w-full object-contain"
         />
-        <span class="text-muted-foreground text-sm">
+        <!-- <span class="text-muted-foreground text-sm">
           {{ t("templateSelector.templateLabel", { index: index + 1 }) }}
-        </span>
+        </span> -->
       </label>
     </RadioGroup>
   </div>
