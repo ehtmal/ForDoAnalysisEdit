@@ -3,7 +3,7 @@
     <div class="mb-2 flex items-center justify-between">
       <div class="flex items-center gap-3 font-medium">
         <span class="text-base">{{ t("ui.common.beat") }} {{ index + 1 }}</span>
-        <div class="flex items-center gap-1">
+        <div class="flex items-center gap-1" v-if="false">
           <CircleUserRound class="size-4 opacity-50" />
           <div v-if="beat.speaker && !toggleSpeakerMode" class="group relative">
             <Badge variant="outline" @click="showSpeakerSelector" class="cursor-pointer">
@@ -22,7 +22,7 @@
             </span>
           </div>
         </div>
-        <div v-if="toggleSpeakerMode">
+        <div>
           <SpeakerSelector
             @emitSpeaker="(speaker) => changeSpeaker(speaker)"
             :currentSpeaker="beat.speaker"
@@ -87,6 +87,36 @@
           controls
         />
       </div>
+    </div>
+
+    <div class="group relative mb-4 flex items-center gap-2" v-if="beatType === 'imagePrompt' && isPro">
+      <Label class="mb-1 block">{{ t("beat.duration.label") }}</Label>
+
+      <Input
+        class="w-16"
+        :placeholder="t('beat.duration.placeholder')"
+        :model-value="beat?.duration"
+        @update:model-value="(value) => update('duration', value === '' ? undefined : Number(value))"
+        @blur="justSaveAndPushToHistory"
+      />
+      <span class="text-muted-foreground text-sm">{{ t("beat.duration.unit") }}</span>
+      <span v-if="expectDuration && beat.moviePrompt" class="text-muted-foreground text-sm">
+        {{ t("beat.duration.supportedDurations", { durations: expectDuration.join(", ") }) }}
+      </span>
+      <span
+        class="bg-popover text-muted-foreground border-border pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 transform rounded border px-2 py-1 text-xs whitespace-nowrap opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+      >
+        <div>{{ t(durationTooltipKey + ".line1") }}</div>
+        <div :class="durationTooltipKey === 'beat.duration.tooltipGeneratedVideo' ? 'ml-2' : ''">
+          {{ t(durationTooltipKey + ".line2") }}
+        </div>
+        <div v-if="durationTooltipKey === 'beat.duration.tooltipGeneratedVideo'" class="ml-2">
+          {{ t(durationTooltipKey + ".line3", { label: t("beat.duration.label") }) }}
+        </div>
+        <div v-if="durationTooltipKey === 'beat.duration.tooltipGeneratedVideo'">
+          {{ t(durationTooltipKey + ".line4") }}
+        </div>
+      </span>
     </div>
 
     <div class="grid grid-cols-2 gap-4">
@@ -242,7 +272,7 @@
             @update:model-value="(value) => update('moviePrompt', String(value))"
             @blur="justSaveAndPushToHistory"
             class="mb-2 h-20 overflow-y-auto"
-            :disabled="beat.enableLipSync"
+            :disabled="lipSyncTargetInfo.supportsImage && beat.enableLipSync"
           />
         </div>
       </div>
@@ -257,21 +287,28 @@
           :toggleTypeMode="toggleTypeMode"
           @openModal="openModal"
           @generateMovie="generateImageOnlyMovie"
-          :disabled="!isValidBeat || isArtifactGenerating || beat.enableLipSync"
+          :disabled="!isValidBeat || isArtifactGenerating"
         />
       </div>
 
       <!-- left: lipSync edit -->
-      <div class="flex flex-col gap-4" v-if="beatType === 'imagePrompt' && enableLipSync">
+      <div class="flex flex-col gap-1" v-if="beatType === 'imagePrompt' && enableLipSync">
         <!-- movie edit -->
-        <div class="mb-2 flex gap-2">
+        <div class="flex items-center gap-2">
           <Checkbox
             variant="ghost"
             size="icon"
             :modelValue="beat.enableLipSync"
             @update:model-value="(value) => update('enableLipSync', value)"
+            :disabled="!canEnableLipSync"
           />
-          <Label class="mb-2 block">{{ t("beat.lipSync.label") }} </Label>
+          <Label class="block" :class="{ 'opacity-50': !canEnableLipSync }">{{ t("beat.lipSync.label") }} </Label>
+        </div>
+        <div v-if="lipSyncModelDescription" class="text-muted-foreground ml-6 text-sm">
+          {{ lipSyncModelDescription }}
+        </div>
+        <div v-if="!canEnableLipSync" class="text-muted-foreground ml-6 text-sm">
+          {{ lipSyncRequiresMediaMessage }}
         </div>
       </div>
       <!-- right: lipSync preview -->
@@ -300,6 +337,18 @@
       v-if="beatType === 'imagePrompt'"
     />
 
+    <div class="border-border/40 bg-muted/10 mt-4 rounded-md border p-3" v-if="false">
+      <div class="flex items-start gap-3">
+        <Checkbox :modelValue="Boolean(beat.hidden)" @update:model-value="(value) => update('hidden', value)" />
+        <div>
+          <Label class="mb-1 block">{{ t("beat.visibility.label") }}</Label>
+          <p class="text-muted-foreground text-xs leading-relaxed">
+            {{ t("beat.visibility.description") }}
+          </p>
+        </div>
+      </div>
+    </div>
+
     <div
       v-if="mulmoError && mulmoError.length > 0"
       class="border-destructive bg-destructive/10 text-destructive mt-2 w-full rounded border p-2 text-sm"
@@ -323,9 +372,12 @@ import {
   MulmoPresentationStyleMethods,
   MulmoStudioContextMethods,
   provider2TTSAgent,
+  // getModelDuration,
+  provider2MovieAgent,
 } from "mulmocast/browser";
 import { useI18n } from "vue-i18n";
 import { ChevronDown, CircleUserRound } from "lucide-vue-next";
+import { getLipSyncModelDescription, getLipSyncTargetInfo } from "./lip_sync_utils";
 
 // components
 import MediaModal from "@/components/media_modal.vue";
@@ -414,13 +466,68 @@ const beatType = computed(() => {
 });
 
 const enableMovieGenerate = computed(() => {
-  return !!props.beat.moviePrompt && !props.beat.enableLipSync;
+  return !!props.beat.moviePrompt;
 });
 const enableLipSyncGenerate = computed(() => {
   return !!props.beat.enableLipSync;
 });
 const beatId = computed(() => {
   return props.beat.id;
+});
+
+const expectDuration = computed(() => {
+  const movieParams = props.mulmoScript?.movieParams;
+  if (!movieParams?.provider || !movieParams?.model) {
+    return undefined;
+  }
+  const provider = movieParams.provider as keyof typeof provider2MovieAgent;
+  const model = movieParams.model as string;
+  const modelParams = provider2MovieAgent[provider]?.modelParams as Record<string, { durations?: number[] }>;
+  return modelParams?.[model]?.durations;
+});
+
+const durationTooltipKey = computed(() => {
+  // moviePromptがある場合 → 生成動画
+  if (props.beat.moviePrompt) {
+    return "beat.duration.tooltipGeneratedVideo";
+  }
+  // image.typeが"movie"の場合 → アップロードした動画
+  if (props.beat.image?.type === "movie") {
+    return "beat.duration.tooltipUploadedVideo";
+  }
+  // それ以外 → 静止画
+  return "beat.duration.tooltipStillImage";
+});
+
+const lipSyncTargetInfo = computed(() => {
+  const lipSyncParams = props.mulmoScript?.lipSyncParams;
+  return getLipSyncTargetInfo(lipSyncParams?.provider, lipSyncParams?.model);
+});
+
+const lipSyncModelDescription = computed(() => {
+  const lipSyncParams = props.mulmoScript?.lipSyncParams;
+  return getLipSyncModelDescription(lipSyncParams?.provider, lipSyncParams?.model, t);
+});
+
+const canEnableLipSync = computed(() => {
+  const hasVideo = props.beat.moviePrompt || props.beat.image?.type === "movie";
+  const hasImage = props.beat.imagePrompt || (props.beat.image?.type && props.beat.image.type !== "movie");
+
+  return (lipSyncTargetInfo.value.supportsVideo && hasVideo) || (lipSyncTargetInfo.value.supportsImage && hasImage);
+});
+
+const lipSyncRequiresMediaMessage = computed(() => {
+  const { supportsVideo, supportsImage } = lipSyncTargetInfo.value;
+  const imagePromptLabel = t("beat.imagePrompt.label");
+  const moviePromptLabel = t("beat.moviePrompt.label");
+
+  if (supportsImage && !supportsVideo) {
+    return t("beat.lipSync.requiresImage", { imagePromptLabel });
+  }
+  if (supportsVideo && !supportsImage) {
+    return t("beat.lipSync.requiresVideo", { moviePromptLabel });
+  }
+  return t("beat.lipSync.requiresImageOrVideo", { imagePromptLabel, moviePromptLabel });
 });
 
 const isImageGenerating = computed(() => {

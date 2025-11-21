@@ -12,9 +12,11 @@
           handleDrop(e);
         }
       "
-      @click="openFilePicker"
+      @click="selectLocalMedia"
+      @keydown.enter.prevent="selectLocalMedia"
+      @keydown.space.prevent="selectLocalMedia"
       draggable="true"
-      class="border-border bg-card text-muted-foreground mt-4 cursor-pointer rounded-md border-2 border-dashed p-6 text-center shadow-sm"
+      class="border-border bg-card text-muted-foreground mt-4 cursor-pointer rounded-md border-2 border-dashed p-6 text-center whitespace-pre-line shadow-sm"
       :class="
         isDragging
           ? 'border-primary bg-primary/5 text-primary shadow-lg'
@@ -22,6 +24,8 @@
             ? 'border-2 border-red-600'
             : 'border-border bg-card text-muted-foreground'
       "
+      role="button"
+      tabindex="0"
     >
       {{ t("ui.common.drophere", { maxSizeMB }) }}
       <input
@@ -33,17 +37,27 @@
         @change="handleFileSelect"
       />
     </div>
-    {{ t("ui.common.or") }}
-    <div class="flex">
+    <div class="text-muted-foreground mt-2 ml-2 text-sm">{{ t("ui.common.or") }}</div>
+    <div class="mt-2 flex flex-wrap gap-2">
       <Input
         :placeholder="t('beat.mediaFile.placeholder')"
         v-model="mediaUrl"
         :invalid="!validateURL"
         @blur="save"
-      /><Button @click="submitUrlImage" :disabled="!fetchEnable">
+        class="min-w-0 flex-1"
+      />
+      <Button @click="submitUrlImage" :disabled="!fetchEnable" class="shrink-0">
         {{ t("ui.actions.fetch") }}
       </Button>
     </div>
+    <div class="text-muted-foreground mt-2 ml-2 text-sm">{{ t("ui.common.or") }}</div>
+    <div class="mt-2">
+      <Button @click="openMediaLibrary" type="button" class="shrink-0">
+        {{ t("ui.actions.openMediaLibrary") }}
+      </Button>
+    </div>
+
+    <MediaLibraryDialog ref="mediaLibraryRef" :project-id="projectId" @select="selectScriptImage" />
   </div>
 </template>
 
@@ -52,11 +66,16 @@ import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
 
 import { Label, Input, Button } from "@/components/ui";
-import type { MulmoBeat } from "mulmocast/browser";
+import type { MulmoBeat, MulmoImageAsset } from "mulmocast/browser";
 import { isLocalSourceMediaBeat } from "@/lib/beat_util.js";
 
 import { notifyError } from "@/lib/notification";
+import { readFileAsArrayBuffer, type BinaryFileData } from "@/lib/file";
 import { useMediaUrl } from "../../composable/media_url";
+import MediaLibraryDialog, {
+  type MediaLibraryDialogExposed,
+  type ProjectScriptMedia,
+} from "./media_library_dialog.vue";
 
 import { sleep } from "graphai";
 import { useI18n } from "vue-i18n";
@@ -74,7 +93,7 @@ const props = defineProps<Props>();
 const emit = defineEmits(["update", "save", "updateImageData", "generateImageOnlyImage"]);
 
 const isDragging = ref(false);
-const fileInput = ref<HTMLInputElement | null>(null);
+const mediaLibraryRef = ref<MediaLibraryDialogExposed | null>(null);
 
 const update = (path: string, value: unknown) => {
   emit("update", path, value);
@@ -128,16 +147,15 @@ const videoSubtypeToExtensions = {
 
 const maxSizeMB = 50;
 
-const processFile = (file: File) => {
+const processMediaFile = async (fileData: BinaryFileData) => {
   const maxSize = maxSizeMB * 1024 * 1024;
-  if (file.size > maxSize) {
+  if (fileData.size > maxSize) {
     notifyError(t("notify.error.media.tooLarge", { maxSizeMB }));
     return;
   }
 
-  const fileExtension = file.name.split(".").pop()?.toLowerCase() ?? "";
-  const mimeType = file.type.split("/")[1] ?? "";
-  console.log(file.type, mimeType);
+  const fileExtension = fileData.name.split(".").pop()?.toLowerCase() ?? "";
+  const mimeType = fileData.type.split("/")[1] ?? "";
   const fileType = mimeType || fileExtension;
 
   const imageType = (() => {
@@ -147,55 +165,107 @@ const processFile = (file: File) => {
     if (["mp4", "quicktime", "webm", "ogg", "mpeg", "mp2t", "mov", "mpg"].includes(fileType)) {
       return "movie";
     }
+    return undefined;
   })();
   if (!imageType) {
     notifyError(t("notify.error.media.unsupportedType", { fileType }));
     return;
   }
+
+  const extension =
+    imageType === "image" ? fileType : videoSubtypeToExtensions[fileType as keyof typeof videoSubtypeToExtensions];
+  if (!extension) {
+    notifyError(t("notify.error.media.unsupportedType", { fileType }));
+    return;
+  }
+
   update("image.type", imageType);
-  const extension = imageType === "image" ? fileType : videoSubtypeToExtensions[fileType];
 
-  const reader = new FileReader();
-  reader.onload = async () => {
-    const uint8Array = new Uint8Array(reader.result as ArrayBuffer);
-    const path = await window.electronAPI.mulmoHandler(
-      "mulmoImageUpload",
-      projectId.value,
-      props.index,
-      [...uint8Array],
-      extension,
-    );
-    const imageData = {
-      type: imageType,
-      source: {
-        kind: "path",
-        path: "./" + path,
-      },
-    };
-    await sleep(50);
-    emit("updateImageData", imageData, () => {
-      emit("generateImageOnlyImage");
-    });
+  const uint8Array = fileData.buffer instanceof Uint8Array ? fileData.buffer : new Uint8Array(fileData.buffer);
+  const path = await window.electronAPI.mulmoHandler(
+    "mulmoImageUpload",
+    projectId.value,
+    props.index,
+    [...uint8Array],
+    extension,
+  );
+  const imageData = {
+    type: imageType,
+    source: {
+      kind: "path",
+      path: "./" + path,
+    },
   };
-  reader.readAsArrayBuffer(file);
+  await sleep(50);
+  emit("updateImageData", imageData, () => {
+    emit("generateImageOnlyImage");
+  });
 };
 
-const handleDrop = (event: DragEvent) => {
-  const files = event.dataTransfer.files;
-  if (files.length > 0) {
-    processFile(files[0]);
+const handleDrop = async (eventOrFileData: DragEvent | BinaryFileData) => {
+  if ("dataTransfer" in eventOrFileData) {
+    const files = eventOrFileData.dataTransfer?.files;
+    if (files?.length) {
+      const file = files[0];
+      try {
+        const buffer = await readFileAsArrayBuffer(file);
+        await processMediaFile({
+          name: file.name,
+          size: file.size,
+          type: file.type,
+          buffer,
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    return;
+  }
+
+  try {
+    await processMediaFile(eventOrFileData);
+  } catch (error) {
+    console.error(error);
   }
 };
 
-const openFilePicker = () => {
-  fileInput.value?.click();
+const selectLocalMedia = async () => {
+  try {
+    const filePath = await window.electronAPI.dialog.openFile("media");
+    if (!filePath) {
+      return;
+    }
+    const fileData = await window.electronAPI.file.readBinary(filePath);
+    if (!fileData) {
+      return;
+    }
+    await handleDrop(fileData);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-const handleFileSelect = (event: Event) => {
-  const input = event.target as HTMLInputElement;
-  if (input.files?.length) {
-    processFile(input.files[0]);
-    input.value = "";
+const openMediaLibrary = async () => {
+  if (mediaLibraryRef.value) {
+    await mediaLibraryRef.value.open();
   }
+};
+
+const selectScriptImage = (media: ProjectScriptMedia) => {
+  const projectRelativePath = media.projectRelativePath.startsWith("./")
+    ? media.projectRelativePath
+    : `./${media.projectRelativePath.replace(/^\/+/u, "")}`;
+
+  const imageData: MulmoImageAsset = {
+    type: media.mediaType,
+    source: {
+      kind: "path",
+      path: projectRelativePath,
+    },
+  };
+
+  emit("updateImageData", imageData, () => {
+    emit("generateImageOnlyImage");
+  });
 };
 </script>
