@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, shell, Menu } from "electron";
+import { app, BrowserWindow, shell, Menu } from "electron";
 import path from "node:path";
 import os from "node:os";
 import fs from "node:fs";
@@ -57,14 +57,7 @@ if (!app.isPackaged) {
   try {
     const versionDirs = fs
       .readdirSync(chromiumDir)
-      .filter(
-        (dir) =>
-          dir.startsWith("win64-") ||
-          dir.startsWith("mac-") ||
-          dir.startsWith("mac_") ||
-          dir.startsWith("mac-arm") ||
-          dir.startsWith("mac_arm"),
-      );
+      .filter((dir) => dir.startsWith("win64-") || dir.startsWith("mac-") || dir.startsWith("mac_"));
     GraphAILogger.log(`[PUPPETEER] Found version directories: ${versionDirs.join(", ")}`);
 
     if (versionDirs.length < 1) {
@@ -243,20 +236,6 @@ const createWindow = (splashWindow?: BrowserWindow) => {
     }
   });
 
-  ipcMain.on("request-env", (event) => {
-    void (async () => {
-      const settings = await settingsManager.loadSettings();
-      const envData: Record<string, string | undefined> = {};
-
-      for (const envKey of Object.keys(ENV_KEYS)) {
-        const value = settings.APIKEY?.[envKey as keyof settingsManager.Settings];
-        envData[envKey] = value || process.env[envKey];
-      }
-
-      event.reply("response-env", envData);
-    })();
-  });
-
   const updateCallBack = (response: number) => {
     if (response === 1) {
       GraphAILogger.log("[AutoUpdate] Later selected; navigating to /updateInstall");
@@ -317,7 +296,7 @@ app.on("ready", () => {
     const settings = await settingsManager.loadSettings();
 
     for (const envKey of Object.keys(ENV_KEYS)) {
-      const value = settings.APIKEY?.[envKey as keyof settingsManager.Settings];
+      const value = settings?.APIKEY?.[envKey as keyof typeof ENV_KEYS];
       if (value) {
         process.env[envKey] = value;
       }
